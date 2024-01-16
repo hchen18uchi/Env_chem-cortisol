@@ -1,5 +1,5 @@
 ---
-title             : "Assignment2-2"
+title             : "Urine_Dep"
 shorttitle        : "Title"
 
 author: 
@@ -11,7 +11,7 @@ author:
     role: # Contributorship roles (e.g., CRediT, https://credit.niso.org/)
       - "Conceptualization"
       - "Writing - Original Draft Preparation"
-      - "Writing - Review & Editing"gt
+      - "Writing - Review & Editing"
   - name          : "Ernst-August Doelle"
     affiliation   : "1,2"
     role:
@@ -68,6 +68,15 @@ source("~/Documents/GitHub/Env_chem-cortisol/Assignment2-1.R")
 # Seed for random number generation
 set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+
+```
+```{r}
+
+# Call the function
+generate_message <- helloworld("Ricky", "Chen", "Male")
+
+# Print the greeting message
+print(generate_message)
 ```
 
 
@@ -75,6 +84,14 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 # Methods
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
 
+<!-- This paragraph is for practice -->
+**This line should be bold**g
+*This line should be italicized*
+[link](www.4399.com)
+*Unorder list
+*Unorder list 2
+1.Order list
+2.Order list 2
 ## Participants
 
 ## Material
