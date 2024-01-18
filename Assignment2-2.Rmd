@@ -80,11 +80,25 @@ print(generate_message)
 ```
 
 
-```{r}
+```{r-sameple_urxumn}
 
-#read data
-library(readxl)
-read_csv("Documents/Github/Env_chem-cortisol/nhanes2017.csv")
+#read data and get 10 sample data from column "URXUMN
+library(readr)
+library(dyplr)
+nhanes_data <- read_csv("~/Documents/Github/Env_chem-cortisol/nhanes2017.csv")
+sample_data_10 <- sample_n(nhanes_data,10,replace = TRUE)
+sampled_urxumn <- sample(nhanes_data$URXUMN, 10, replace = TRUE)
+print(sample_urxumn)
+```
+```{r}
+#selected the depression related data and write it into a individual csv file
+library(readr)
+library(dplyr)
+nhanes_data <- read_csv("~/Documents/Github/Env_chem-cortisol/nhanes2017.csv")
+depression_columns <- nhanes_data %>% select(starts_with("DPQ"),starts_with("SEQN"))
+head(depression_columns)
+write_csv(depression_columns,"depression_columns")
+
 ```
 
 # Methods
