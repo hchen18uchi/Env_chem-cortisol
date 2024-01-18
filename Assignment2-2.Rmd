@@ -80,6 +80,12 @@ print(generate_message)
 ```
 
 
+```{r}
+
+#read data
+library(readxl)
+read_csv("Documents/Github/Env_chem-cortisol/nhanes2017.csv")
+```
 
 # Methods
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
