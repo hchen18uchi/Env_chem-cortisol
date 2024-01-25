@@ -3,7 +3,7 @@
 .Rapp.history
 
 #Ignore localonly 
-
+localonly/
 
 #ignore all html file
 *.html
