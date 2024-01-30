@@ -101,6 +101,28 @@ write_csv(depression_columns,"depression_columns")
 
 ```
 
+```{r}
+#My first plot would be a T-test of gender difference for the depression score 
+library(dplyr)
+
+fix_nhanes_data <- fix_nhanes_data %>%
+  mutate(Gender = if_else(RIAGENDR == 1, "Male", "Female"))
+ggplot(fix_nhanes_data, aes(x = Gender, y = DPQsum)) +
+  geom_boxplot() +
+  labs(title = "Difference in DPQsum Between Genders",
+       x = "Gender",
+       y = "DPQsum")
+
+```
+
+```{r}
+#My second plot would be a linear regression 
+library(ggplot2)
+ggplot(fix_nhanes_data, aes(x = DPQsum, y = LCsum)) +
+  geom_point() +
+  labs(title = "LCsum vs DPQsum", x = "DPQsum", y = "LCsum")
+
+```
 # Methods
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
 
