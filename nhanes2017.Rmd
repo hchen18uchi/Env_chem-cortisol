@@ -102,17 +102,17 @@ write_csv(depression_columns,"depression_columns")
 ```
 
 ```{r}
-#My first plot would be a T-test of gender difference for the depression score 
+#Create a bar plot to visualize the difference in mean depression scores (DPQsum) between genders
 library(dplyr)
-
+library(ggplot2)
 fix_nhanes_data <- fix_nhanes_data %>%
   mutate(Gender = if_else(RIAGENDR == 1, "Male", "Female"))
 ggplot(fix_nhanes_data, aes(x = Gender, y = DPQsum)) +
-  geom_boxplot() +
-  labs(title = "Difference in DPQsum Between Genders",
+  geom_col(position = "dodge") +
+  labs(title = "Difference in Mean DPQsum Between Genders",
        x = "Gender",
-       y = "DPQsum")
-
+       y = "Mean DPQsum")
+# To "fine tune" it, I can change the color of two bar and make it a little thinner.
 ```
 
 ```{r}

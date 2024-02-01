@@ -1,6 +1,7 @@
 library(tidyverse)
 library(tidyr)
 library(dplyr)
+library(ggplot2)
 
 ## Create your goal tibble to replicate
 
@@ -62,7 +63,25 @@ starwars <- starwars %>%
 
 
 
+#plot 1 count of height_cm
+ggplot(starwars, aes(x = height_cm)) +
+  geom_histogram(binwidth = 10) +
+  ylim(0, 22.5)
 
+#plot 2
+
+ggplot(starwars, aes(x = fct_infreq(hair))) +
+  geom_bar() +
+  labs(title = "plot 2", 
+       x = "Sorted_hair", 
+       y = "Count")
+
+#plot 3
+ggplot(data = starwars %>%
+         filter(mass<=500),
+       aes(x = height_in, y = mass)) +
+  geom_point(shape = 17, size = 2) +
+  labs(x = "Height (in)", y = "Mass")
 
 
 
