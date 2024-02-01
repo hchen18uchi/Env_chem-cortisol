@@ -112,7 +112,7 @@ ggplot(fix_nhanes_data, aes(x = Gender, y = DPQsum)) +
   labs(title = "Difference in Mean DPQsum Between Genders",
        x = "Gender",
        y = "Mean DPQsum")
-# To "fine tune" it, I can change the color of two bar and make it a little thinner.
+# To "fine tune" it, I can change the color of two bar and make it a little thinner. 1
 ```
 
 ```{r}
