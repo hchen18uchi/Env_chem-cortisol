@@ -120,6 +120,7 @@ ggplot(fix_nhanes_data, aes(x = Gender, y = DPQsum)) +
 library(ggplot2)
 ggplot(fix_nhanes_data, aes(x = DPQsum, y = LCsum)) +
   geom_point() +
+   geom_smooth(method = "lm", color = "blue") +
   labs(title = "LCsum vs DPQsum", x = "DPQsum", y = "LCsum")
 
 ```

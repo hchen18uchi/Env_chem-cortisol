@@ -84,6 +84,55 @@ ggplot(data = starwars %>%
   labs(x = "Height (in)", y = "Mass")
 
 
+#Assignment 12
+#plot 1
+ggplot(starwars <- starwars %>% filter(mass<=500), aes(x = fct_infreq(hair), y = mass, fill = hair)) +
+  geom_boxplot() +
+  geom_point(shape = 19, size = 1) +  
+  labs(
+    x = "Hair Color",
+    y = "Mass",
+    fill = "Colorful Hair"
+  ) +
+  scale_fill_discrete(breaks = c("none", levels(fct_infreq(starwars$hair)))) #This line change the
+#order of the legend
+                 
+
+
+
+#plot2
+ggplot(starwars, aes(x = mass, y = height_in)) +
+  geom_point() +
+  geom_smooth(method = "lm", color = "blue") +  # Add a trend line
+  labs(
+    title = "Mass vs. height by brown-hair-havingness ",
+    subtitle = "a critical important analysis"
+  ) +
+  facet_wrap(~ ifelse(brown_hair, "Has brown hair", "No brown hair"), ncol = 2) +
+  theme_minimal() +
+  coord_cartesian(xlim = c(-200, 200), ylim = c(-4, NA))  # Set x and y-axis limits
+
+#plot3
+
+# Create a bar chart of the count of species' first letters, colored by gender
+starwars_filtered_NA <- sw.wrangled.goal %>%
+  filter(!is.na(gender) | !is.na(species))
+ggplot(starwars_filtered_NA, aes(x = substr(species, 1, 1), fill = gender)) +
+  geom_bar() +
+  labs(
+    x = "species_first_letter",
+    y = "count",
+    fill = "gender"
+  ) +
+  coord_flip() +
+  annotate(
+    geom = "text",
+    x = 1,
+    y = 30,
+    label = "a clear male human bias"
+  )
+  theme_minimal() 
+
 
 
 
