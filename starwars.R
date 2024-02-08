@@ -133,7 +133,38 @@ ggplot(starwars_filtered_NA, aes(x = substr(species, 1, 1), fill = gender)) +
   )
   theme_minimal() 
 
-
+#Assign 13 plot
+  ggplot(starwars_modified, aes(x = height, y = mass, color = gender)) +
+    geom_jitter() + # Adds jitter to the plot
+    geom_smooth(method = "lm", se = TRUE, aes(fill = gender)) + 
+    facet_wrap(~gender, scales = "free", strip.position = "top", 
+               labeller = labeller(gender = c(masculine = "Male", feminine = "Female", none = "Other"))) +
+    theme_light(base_size = 8) +
+    theme(
+      panel.background = element_rect(fill = "lightpink"),
+      strip.background = element_rect(fill = "darkgreen", color = "darkgreen"),
+      strip.text = element_text(color = "white"),
+      legend.position = "bottom",
+      text = element_text(family = "Annai MN"), # Change font family to SimSun for example
+      legend.title = element_text(family = "Annai MN"), # Apply font settings to legend title specifically
+      legend.text = element_text(family = "Annai MN"),
+      panel.grid.major.y = element_line(color = "darkgrey", linetype = "dotdash"), # White dotted horizontal lines
+      panel.grid.major.x = element_line(color = "white", linetype = "dashed")
+    ) +
+    labs(
+      x = "Height (cm)", 
+      y = "Mass (kg)", 
+      title = "Height and weight across gender presentation", 
+      subtitle = "A cautionary tale in misleading 'free' axis scales and bad design choices",
+      color = "Gender Presentation", 
+      fill = "Gender Presentation" 
+    ) +
+    scale_color_manual(values = c("masculine" = "grey", "feminine" = "darkred", "none" = "orange"),
+                       labels = c("Male", "Female", "Other")) + #color scale for points
+    scale_fill_manual(values = c("masculine" = "lightblue", "feminine" = "lightblue", "none" = "lightblue"),
+                      labels = c("Male", "Female", "Other")) #fill scale for linear regression areas
+  
+  
 
 
 
