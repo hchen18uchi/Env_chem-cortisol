@@ -165,9 +165,34 @@ ggplot(starwars_filtered_NA, aes(x = substr(species, 1, 1), fill = gender)) +
                       labels = c("Male", "Female", "Other")) #fill scale for linear regression areas
   
   
+sw.wrangled %>%
+  ggplot(aes(x=heihgt_cm,y=mass,color=gender))+
+  geom_point()+
+  geom_smooth(method="lm")+
+  facet_warp(vars(gender))
 
+sw.wrangled %>%
+  mutate('Gender PResentation' = case_when(gender == "m" ~ "Male",
+                                           gender == "f" ~ "Female",
+                                           TRUE ~ "Other") ) %>%
+  ggplot(aes(x=height_cm,y=masss,color =`Gender PResentation`))+
+  geom_smooth(method="lm",fill="#cccccff")+
+  facet_wrap(vars(`Gender Presentation`),scales = "free_y")+
+  scale_Color_uchicago()+
+  scale_x_continuous(n.breaks = 8)+
+  labs(
+    caption = "color hint")+
+  theme_bw()+
+  theme(
+    text = element_text(family = "Cosmic Sans MS"),
+    strip.text = element_text(hjust=0,color="white",family = "Courier"),
+    strip.background = element_text(fill ="darkgreen"),
+    axis.text.x = element_text(angel=45,vjust=.5,hjust=0)
+  )
+  
+  )
 
-
+# To be continued
 
 
 

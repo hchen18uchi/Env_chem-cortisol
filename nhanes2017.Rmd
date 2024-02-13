@@ -100,8 +100,8 @@ head(depression_columns)
 write_csv(depression_columns,"depression_columns")
 
 ```
-
-```{r}
+Here to reference my depression measure gender difference plot.Figure\\@ref(fig:DPQgenderdiff-plot)
+```{r DPQgenderdiff-plot}
 #Create a bar plot to visualize the difference in mean depression scores (DPQsum) between genders
 #box plot would be better. add standard error bar if want to leave as bar plot.
 library(dplyr)
@@ -115,8 +115,8 @@ ggplot(fix_nhanes_data, aes(x = Gender, y = DPQsum)) +
        y = "Mean DPQsum")
 # To "fine tune" it, I can change the color of two bar and make it a little thinner. 1
 ```
-
-```{r}
+Here to reference my LCsum and DPQ sum linear regression plot. Figure\\@ref(fig:DPQgenderdiff-plot)
+```{r LCDPQ-plot}
 #My second plot would be a linear regression 
 library(ggplot2)
 ggplot(fix_nhanes_data, aes(x = LCsum, y = DPQsum)) +
@@ -125,8 +125,35 @@ ggplot(fix_nhanes_data, aes(x = LCsum, y = DPQsum)) +
   labs(title = "LCsum vs DPQsum", x = "LCsum", y = "DPQsum")
 
 ```
+
+
+Here to reference my racial demographic table @ref(racial_demographics)
+```{r racial_demographics}
+library(knitr)
+# Create a lookup table for racial categories
+racial_lookup <- data.frame(
+  RIDRETH3 = c(1, 2, 3, 4, 6, 7, NA),
+  Racial_Category = c("Mexican American", "Other Hispanic", "Non-Hispanic White", 
+                      "Non-Hispanic Black", "Non-Hispanic Asian", "Other", "Missing")
+)
+
+# Use the lookup table to create a new column with racial categories
+nhanes_data$Racial_Category <- racial_lookup$Racial_Category[match(nhanes_data$RIDRETH3, racial_lookup$RIDRETH3)]
+
+# Create a table showing the racial demographics
+racial_demographics <- table(nhanes_data$Racial_Category)
+
+# Print the table
+rac_table <- kable(racial_demographics,col.names = c("race","count"),align = "c", caption = "Racial Demographics in nhanes_data")
+
+#Do it apa style, having some problem.
+apa_table(rac_table)
+
+```
 # Methods
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
+
+
 
 <!-- This paragraph is for practice -->
 **This line should be bold**g
