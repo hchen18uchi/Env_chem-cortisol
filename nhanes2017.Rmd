@@ -119,7 +119,8 @@ Here to reference my LCsum and DPQ sum linear regression plot. Figure\\@ref(fig:
 ```{r LCDPQ-plot}
 #My second plot would be a linear regression 
 library(ggplot2)
-ggplot(fix_nhanes_data, aes(x = LCsum, y = DPQsum)) +
+LCsumnotzero_data <- fix_nhanes_data[fix_nhanes_data$LCsum != 0, ]
+ggplot(LCsumnotzero_data, aes(x = LCsum, y = DPQsum)) +
   geom_jitter() +
    geom_smooth(method = "lm", color = "blue") +
   labs(title = "LCsum vs DPQsum", x = "LCsum", y = "DPQsum")
@@ -171,8 +172,12 @@ We report how we determined our sample size, all data exclusions (if any), all m
 
 ## Data analysis
 We used `r cite_r("r-references.bib")` for all our analyses.
-
-
+```{r hypothesis test analysis}
+#For my hypothesis test analysis. I would do a Spearman's Rank Correlation coefficient since both my variables are ordinal variables.One is LCsum. It is the sum of total kinds of trace metal above detection limits in each participants. One is DPQsum, which is their depression test result. 
+```
+```{r descriptive analysis}
+#For my descriptive analysis. I will show the distribution of LCsum, the means, median.
+```
 # Results
 
 # Discussion
