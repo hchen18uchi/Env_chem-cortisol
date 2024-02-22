@@ -43,10 +43,10 @@ abstract: |
 keywords          : "keywords"
 wordcount         : "X"
 
-bibliography      : "r-references.bib"
+bibliography      : ["nhanes2017.bib"]
 
 floatsintext      : no
-linenumbers       : yes
+linenumbers       : no
 draft             : no
 mask              : no
 
@@ -60,36 +60,11 @@ output            : papaja::apa6_pdf
 
 ```{r setup, include = FALSE}
 library("papaja")
-r_refs("r-references.bib")
-source("~/Documents/GitHub/Env_chem-cortisol/Assignment2-1.R")
-```
-
-```{r analysis-preferences}
-# Seed for random number generation
-set.seed(42)
-knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
-
-```
-```{r}
-
-# Call the function
-generate_message <- helloworld("Ricky", "Chen", "Male")
-
-# Print the greeting message
-print(generate_message)
+r_refs("nhanes2017.bib")
+source("~/Documents/GitHub/Env_chem-cortisol/data-prep.R")
 ```
 
 
-```{r-sameple_urxumn}
-
-#read data and get 10 sample data from column "URXUMN
-library(readr)
-library(dyplr)
-nhanes_data <- read_csv("~/Documents/Github/Env_chem-cortisol/nhanes2017.csv")
-sample_data_10 <- sample_n(nhanes_data,10,replace = TRUE)
-sampled_urxumn <- sample(nhanes_data$URXUMN, 10, replace = TRUE)
-print(sample_urxumn)
-```
 ```{r}
 #selected the depression related data and write it into a individual csv file
 library(readr)
@@ -108,18 +83,19 @@ library(dplyr)
 library(ggplot2)
 fix_nhanes_data <- fix_nhanes_data %>%
   mutate(Gender = if_else(RIAGENDR == 1, "Male", "Female"))
-ggplot(fix_nhanes_data, aes(x = Gender, y = DPQsum)) +
+gender_diff_plot<-ggplot(fix_nhanes_data, aes(x = Gender, y = DPQsum)) +
   geom_boxplot(position = "dodge") +
   labs(title = "Difference in Mean DPQsum Between Genders",
        x = "Gender",
        y = "Mean DPQsum")
+
 # To "fine tune" it, I can change the color of two bar and make it a little thinner. 1
 ```
-Here to reference my LCsum and DPQ sum linear regression plot. Figure\\@ref(fig:DPQgenderdiff-plot)
+Here to reference my LCsum and DPQ sum linear regression plot. Figure\\@ref(fig:LCDPQ-plot)
 ```{r LCDPQ-plot}
 #My second plot would be a linear regression 
 library(ggplot2)
-LCsumnotzero_data <- fix_nhanes_data[fix_nhanes_data$LCsum != 0, ]
+LCsumnotzero_data <- fix_nhanes_data[!is.na(fix_nhanes_data$LCsum) & fix_nhanes_data$LCsum != 0, ]
 ggplot(LCsumnotzero_data, aes(x = LCsum, y = DPQsum)) +
   geom_jitter() +
    geom_smooth(method = "lm", color = "blue") +
@@ -131,6 +107,7 @@ ggplot(LCsumnotzero_data, aes(x = LCsum, y = DPQsum)) +
 Here to reference my racial demographic table @ref(racial_demographics)
 ```{r racial_demographics}
 library(knitr)
+library(kableExtra)
 # Create a lookup table for racial categories
 racial_lookup <- data.frame(
   RIDRETH3 = c(1, 2, 3, 4, 6, 7, NA),
@@ -141,29 +118,25 @@ racial_lookup <- data.frame(
 # Use the lookup table to create a new column with racial categories
 nhanes_data$Racial_Category <- racial_lookup$Racial_Category[match(nhanes_data$RIDRETH3, racial_lookup$RIDRETH3)]
 
+# Use the lookup table to create a new column with racial categories
+nhanes_data$Racial_Category <- racial_lookup$Racial_Category[match(nhanes_data$RIDRETH3, racial_lookup$RIDRETH3)]
+
 # Create a table showing the racial demographics
 racial_demographics <- table(nhanes_data$Racial_Category)
 
-# Print the table
-rac_table <- kable(racial_demographics,col.names = c("race","count"),align = "c", caption = "Racial Demographics in nhanes_data")
+# Print the table with kable and style it with kableExtra
+rac_table <- kable(racial_demographics, col.names = c("Race", "Count"), align = "c", caption = "Racial Demographics in NHANES Data") %>%
+  kable_styling(latex_options = "striped", position = "center") %>%
+  column_spec(1, bold = TRUE, border_right = TRUE) %>%
+  row_spec(0, bold = TRUE)
 
-#Do it apa style, having some problem.
-apa_table(rac_table)
+# Print the formatted table
+print(rac_table)
+
 
 ```
 # Methods
-We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
 
-
-
-<!-- This paragraph is for practice -->
-**This line should be bold**g
-*This line should be italicized*
-[link](www.4399.com)
-*Unorder list
-*Unorder list 2
-1.Order list
-2.Order list 2
 ## Participants
 
 ## Material
@@ -171,9 +144,38 @@ We report how we determined our sample size, all data exclusions (if any), all m
 ## Procedure
 
 ## Data analysis
-We used `r cite_r("r-references.bib")` for all our analyses.
+We used `r cite_r("nhanes2017.bib")` for all our analyses.
 ```{r hypothesis test analysis}
-#For my hypothesis test analysis. I would do a Spearman's Rank Correlation coefficient since both my variables are ordinal variables.One is LCsum. It is the sum of total kinds of trace metal above detection limits in each participants. One is DPQsum, which is their depression test result. 
+#For my hypothesis test analysis. I would do a Spearman's Rank Correlation coefficient since both my variables are ordinal variables.One is LCsum. It is the sum of total kinds of trace metal above detection limits in each participants. One is DPQsum, which is their depression test result.
+
+spearman_test_LCsum <- cor.test(fix_nhanes_data$LCsum, fix_nhanes_data$DPQsum, method = "spearman")
+print(spearman_test_LCsum)#r=0.0303 p=0.191
+```
+
+```{r table for test result}
+
+# Specify the variables for which to perform Spearman's rank correlation test
+variables <- c("URXUBA", "URXUCD", "URXUCO", "URXUCS", "URXUMO",
+               "URXUMN", "URXUPB", "URXUSB", "URXUSN", "URXUTL", "URXUTU")
+
+# Initialize an empty data frame to store results
+results <- data.frame(Variable = character(),
+                      R_Score = numeric(),
+                      P_Value = numeric(),
+                      stringsAsFactors = FALSE)
+
+# Loop through each variable and perform the test
+for (var in variables) {
+  test_result <- cor.test(fix_nhanes_data[[var]], fix_nhanes_data$DPQsum, method = "spearman")
+  
+# Append the results to the results dataframe
+  results <- rbind(results, data.frame(Variable = var,
+                                       R_Score = test_result$estimate,
+                                       P_Value = test_result$p.value))
+}
+
+print(results)
+
 ```
 ```{r descriptive analysis}
 #For my descriptive analysis. I will show the distribution of LCsum, the means, median.

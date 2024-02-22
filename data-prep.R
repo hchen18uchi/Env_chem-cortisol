@@ -4,7 +4,7 @@
 # coding would be select, filter, start with, some calculation and some plot. 
 
 library(readr)
-library(dyplr)
+library(dplyr)
 nhanes_data <- read_csv("~/Documents/Github/Env_chem-cortisol/nhanes2017.csv")
 
 #Goal: 1.change all depression score of 7,9 to NA and add up the depression score.
@@ -28,6 +28,7 @@ fix_nhanes_data <- fix_nhanes_data %>%
 #add up all the LC score
 fix_nhanes_data <- fix_nhanes_data %>%
   mutate(LCsum = rowSums(select(., ends_with("LC")), na.rm = TRUE))
+
 
 
 
