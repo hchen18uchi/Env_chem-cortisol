@@ -158,7 +158,7 @@
     {}{\InnerPatchFailed}%
   }
 {}{\PatchFailed}
-\keywords{keywords\newline\indent Word count: X}
+\keywords{Trace metal, Depression\newline\indent Word count: X}
 \DeclareDelayedFloatFlavor{ThreePartTable}{table}
 \DeclareDelayedFloatFlavor{lltable}{table}
 \DeclareDelayedFloatFlavor*{longtable}{table}
@@ -173,14 +173,14 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={Urine\_Dep},
+  pdftitle={Correlation of trace metal and frequency of depression symptom},
   pdfauthor={HaoChen1 \& Ernst-August Doelle1,2},
   pdflang={en-EN},
-  pdfkeywords={keywords},
+  pdfkeywords={Trace metal, Depression},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
-\title{Urine\_Dep}
+\title{Correlation of trace metal and frequency of depression symptom}
 \author{HaoChen\textsuperscript{1} \& Ernst-August Doelle\textsuperscript{1,2}}
 \date{}
 
@@ -199,7 +199,7 @@ Correspondence concerning this article should be addressed to HaoChen, Postal ad
 
 }
 
-\affiliation{\vspace{0.5cm}\textsuperscript{1} Wilhelm-Wundt-University\\\textsuperscript{2} Konstanz Business School}
+\affiliation{\vspace{0.5cm}\textsuperscript{1} University of Chicago\\\textsuperscript{2} Konstanz Business School}
 
 \abstract{%
 One or two sentences providing a \textbf{basic introduction} to the field, comprehensible to a scientist in any discipline.
@@ -216,49 +216,43 @@ Two or three sentences to provide a \textbf{broader perspective}, readily compre
 \begin{document}
 \maketitle
 
-\begin{verbatim}
-## # A tibble: 6 x 11
-##   DPQ010 DPQ020 DPQ030 DPQ040 DPQ050 DPQ060 DPQ070 DPQ080 DPQ090 DPQ100  SEQN
-##    <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl> <dbl>
-## 1      0      0      0      0      0      0      0      0      0     NA 93708
-## 2      1      0      1      0      0      0      0      0      0      0 93711
-## 3      0      0      1      0      0      0      0      0      0      0 93712
-## 4      1      0      0      1      0      0      0      0      0      0 93714
-## 5     NA     NA     NA     NA     NA     NA     NA     NA     NA     NA 93718
-## 6      0      0      1      0      0      0      0      0      0      0 93722
-\end{verbatim}
+\#Introduction
+Major Depressive Disorder (MDD) is a prevalent yet severe mood condition marked by experience of low mood and negative emotions for a long period of time(American Psychiatric Association, 2013). In 2019, approximately 280 million individuals, which includes 5\% of the adult population, were estimated to have experienced depression({``{GBD Results},''} n.d.). According to the statistics from the United States National Institute of Mental Health, around 21.0 million adults in the United States experienced at least one major depressive episode, accounting for 8.3\% of all U.S. adults({``Major {Depression} - {National Institute} of {Mental Health} ({NIMH}),''} n.d.).
+MDD is a multifaceted and intricate condition, which can result in impairment of psychosocial functioning and quality of life(Saragoussi et al., 2018). In addition to depressed feelings, patients with MDD may experience a wide range of physical and cognitive symptoms, including feelings of sadness, irritability, loss of interest or pleasure in activities, changes in appetite or weight, sleep disturbances, fatigue, feelings of worthlessness or guilt, difficulty concentrating, and thoughts of death or suicide(American Psychiatric Association, 2013).
+Etiology of MDD includes biological, environmental, and personal vulnerabilities(National Research Council (US) and Institute of Medicine (US) Committee on Depression, England, \& Sim, 2009). Lately, there has been growing attention towards metallomic research in psychiatry, with a focus on examining the involvement of essential trace elements in both the development and progression of MDD symptoms. An essential trace element refers to a mineral or dietary element necessary in small amounts for an organism's proper growth, development, and physiology(Bowen, 1966). These elements are vital for conducting essential metabolic activities in organisms. Examples of essential trace metals in human nutrition include Na, K, Mg, Ca, Fe, Mn, Co, Cu, Zn and Mo(Zoroddu et al., 2019). The trace metals play important catalytic and structural roles. These elements facilitate essential biochemical reactions by serving as cofactors for numerous enzymes and as stabilizing agents for the structures of enzymes and proteins(Prashanth, Kattapagari, Chitturi, Baddam, \& Prasad, 2015). Alterations in the accumulation or absence of these components can trigger alternative metabolic pathways, potentially contributing to various neurodevelopmental diseases and conditions (Yui, 2016).
+Baj et al.~(2013) conducted an narrative review of the relationship between levels of selected trace elements in the serum of individuals with MDD and the initiation and advancement of this mental health disorder(Baj et al., 2023). Findings of this review reveal that the levels of metal content in the body are related to the outcomes of individuals with MDD in various ways. For example, Li et al.~(2020) has demonstrated that elevated levels of copper can disrupt the functioning of NMDA receptors, contributing to cognitive deficits in MDD(Li et al., 2020). Increased copper concentrations can also impair AMPA receptor function, leading to disruptions in glutamatergic transmission, supporting the Glu hypothesis of depression(Gerhard, Wohleb, \& Duman, 2016; Peters et al., 2011; Styczeń et al., 2017).
+Although there relationship between the trace metals in human serum and MDD has been widely studied, there are limited research on the results of trace metal and how they relate to the frequency of MDD symptom. This study aims to reveal the relationship between the two.
 
-Here to reference my depression measure gender difference plot.Figure\textbackslash{}(\textbf{ref?})(fig:DPQgenderdiff-plot)
-
-Here to reference my LCsum and DPQ sum linear regression plot. Figure\textbackslash{}(\textbf{ref?})(fig:LCDPQ-plot)
+Here to reference my depression measure gender difference plot.(Figure@ref(fig:gender\_diff\_plot))
+\includegraphics{nhanes2017_files/figure-latex/gender_diff_plot-1.pdf}
+Here to reference my LCsum and DPQ sum linear regression plot. (Figure@ref(fig:LCDPQ\_plot))
 \includegraphics{nhanes2017_files/figure-latex/LCDPQ-plot-1.pdf}
 
-Here to reference my racial demographic table (\textbf{ref?})(racial\_demographics)
+Here to reference my racial demographic table.(Table:\ref{racial-demographic})
 
-\begin{verbatim}
-## \begin{table}
-## \centering
-## \caption{(\#tab:racial_demographics)Racial Demographics in NHANES Data}
-## \centering
-## \begin{tabular}[t]{>{}c||c}
-## \hline
-## \textbf{Race} & \textbf{Count}\\
-## \hline
-## \textbf{\cellcolor{gray!10}{Mexican American}} & \cellcolor{gray!10}{263}\\
-## \hline
-## \textbf{Non-Hispanic Asian} & 262\\
-## \hline
-## \textbf{\cellcolor{gray!10}{Non-Hispanic Black}} & \cellcolor{gray!10}{430}\\
-## \hline
-## \textbf{Non-Hispanic White} & 636\\
-## \hline
-## \textbf{\cellcolor{gray!10}{Other}} & \cellcolor{gray!10}{104}\\
-## \hline
-## \textbf{Other Hispanic} & 164\\
-## \hline
-## \end{tabular}
-## \end{table}
-\end{verbatim}
+\begin{table}
+\centering
+\caption{\label{tab:racial-demographic}Racial Demographics}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{l|r}
+\hline
+Var1 & Freq\\
+\hline
+\cellcolor{gray!10}{Mexican American} & \cellcolor{gray!10}{263}\\
+\hline
+Non-Hispanic Asian & 262\\
+\hline
+\cellcolor{gray!10}{Non-Hispanic Black} & \cellcolor{gray!10}{430}\\
+\hline
+Non-Hispanic White & 636\\
+\hline
+\cellcolor{gray!10}{Other} & \cellcolor{gray!10}{104}\\
+\hline
+Other Hispanic & 164\\
+\hline
+\end{tabular}}
+\end{table}
 
 \hypertarget{methods}{%
 \section{Methods}\label{methods}}
@@ -275,7 +269,7 @@ Here to reference my racial demographic table (\textbf{ref?})(racial\_demographi
 \hypertarget{data-analysis}{%
 \subsection{Data analysis}\label{data-analysis}}
 
-We used R (Version 4.3.2; R Core Team, 2023) and the R-packages \emph{dplyr} (Version 1.1.4; Wickham, François, Henry, Müller, \& Vaughan, 2023), \emph{forcats} (Version 1.0.0; Wickham, 2023a), \emph{ggplot2} (Version 3.4.4; Wickham, 2016), \emph{kableExtra} (Version 1.4.0; Zhu, 2024), \emph{knitr} (Version 1.45; Xie, 2015), \emph{lubridate} (Version 1.9.3; Grolemund \& Wickham, 2011), \emph{papaja} (Version 0.1.2; Aust \& Barth, 2023), \emph{purrr} (Version 1.0.2; Wickham \& Henry, 2023), \emph{readr} (Version 2.1.4; Wickham, Hester, \& Bryan, 2023), \emph{stringr} (Version 1.5.1; Wickham, 2023b), \emph{tibble} (Version 3.2.1; Müller \& Wickham, 2023), \emph{tidyr} (Version 1.3.0; Wickham, Vaughan, \& Girlich, 2023), \emph{tidyverse} (Version 2.0.0; Wickham et al., 2019), and \emph{tinylabels} (Version 0.2.4; Barth, 2023) for all our analyses.
+We used R (Version 4.3.2; R Core Team, 2023) and the R-packages \emph{dplyr} (Version 1.1.4; Wickham, François, Henry, Müller, \& Vaughan, 2023), \emph{papaja} (Version 0.1.2; Aust \& Barth, 2023), \emph{readr} (Version 2.1.4; Wickham, Hester, \& Bryan, 2023), \emph{shiny} (Version 1.8.0; Chang et al., 2023), and \emph{tinylabels} (Version 0.2.4; Barth, 2023) for all our analyses.
 
 \begin{verbatim}
 ## Warning in cor.test.default(fix_nhanes_data$LCsum, fix_nhanes_data$DPQsum, :
@@ -293,6 +287,8 @@ We used R (Version 4.3.2; R Core Team, 2023) and the R-packages \emph{dplyr} (Ve
 ##        rho 
 ## 0.03034425
 \end{verbatim}
+
+The spearman test result for the type of trace metal exceed detection limits and the frequency of depression symptom is
 
 \begin{verbatim}
 ## Warning in cor.test.default(fix_nhanes_data[[var]], fix_nhanes_data$DPQsum, :
@@ -344,8 +340,34 @@ We used R (Version 4.3.2; R Core Team, 2023) and the R-packages \emph{dplyr} (Ve
 ## rho10   URXUTU  0.0554684370 0.01843443
 \end{verbatim}
 
-\hypertarget{results}{%
-\section{Results}\label{results}}
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   9.000  10.000   9.585  11.000  11.000
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "Mean of LCsum: 9.5852608929532"
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "Median of LCsum: 10"
+\end{verbatim}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.000   0.000   1.000   3.158   5.000  27.000
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "Mean of DPQsum: 3.15814954276493"
+\end{verbatim}
+
+\begin{verbatim}
+## [1] "Median of DPQsum: 1"
+\end{verbatim}
+
+Means of LCsum is , which means participants have an average of 9 or 10 types of trace metal above detection limits. For the same people group, their average score for frequency of depression symptom is .
+\# Results
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
@@ -357,50 +379,65 @@ We used R (Version 4.3.2; R Core Team, 2023) and the R-packages \emph{dplyr} (Ve
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-americanpsychiatricassociationDiagnosticStatisticalManual2013}{}}%
+American Psychiatric Association. (2013). \emph{Diagnostic and {Statistical Manual} of {Mental Disorders}} (Fifth Edition). {American Psychiatric Association}. \url{https://doi.org/10.1176/appi.books.9780890425596}
+
 \leavevmode\vadjust pre{\hypertarget{ref-R-papaja}{}}%
 Aust, F., \& Barth, M. (2023). \emph{{papaja}: {Prepare} reproducible {APA} journal articles with {R Markdown}}. Retrieved from \url{https://github.com/crsh/papaja}
+
+\leavevmode\vadjust pre{\hypertarget{ref-bajTraceElementsLevels2023}{}}%
+Baj, J., Bargieł, J., Cabaj, J., Skierkowski, B., Hunek, G., Portincasa, P., \ldots{} Smoleń, A. (2023). Trace {Elements Levels} in {Major Depressive Disorder}---{Evaluation} of {Potential Threats} and {Possible Therapeutic Approaches}. \emph{International Journal of Molecular Sciences}, \emph{24}(20), 15071. \url{https://doi.org/10.3390/ijms242015071}
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-tinylabels}{}}%
 Barth, M. (2023). \emph{{tinylabels}: Lightweight variable labels}. Retrieved from \url{https://cran.r-project.org/package=tinylabels}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-lubridate}{}}%
-Grolemund, G., \& Wickham, H. (2011). Dates and times made easy with {lubridate}. \emph{Journal of Statistical Software}, \emph{40}(3), 1--25. Retrieved from \url{https://www.jstatsoft.org/v40/i03/}
+\leavevmode\vadjust pre{\hypertarget{ref-bowen1966trace}{}}%
+Bowen, H. J. M. (1966). \emph{Trace elements in biochemistry}. {Academic Press}. Retrieved from \url{https://books.google.com/books?id=AH2T3X0enHkC}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-tibble}{}}%
-Müller, K., \& Wickham, H. (2023). \emph{Tibble: Simple data frames}. Retrieved from \url{https://CRAN.R-project.org/package=tibble}
+\leavevmode\vadjust pre{\hypertarget{ref-R-shiny}{}}%
+Chang, W., Cheng, J., Allaire, J., Sievert, C., Schloerke, B., Xie, Y., \ldots{} Borges, B. (2023). \emph{Shiny: Web application framework for r}. Retrieved from \url{https://CRAN.R-project.org/package=shiny}
+
+\leavevmode\vadjust pre{\hypertarget{ref-GBDResults}{}}%
+{GBD Results}. (n.d.). Retrieved February 27, 2024, from \url{https://vizhub.healthdata.org/gbd-results}
+
+\leavevmode\vadjust pre{\hypertarget{ref-gerhardEmergingTreatmentMechanisms2016}{}}%
+Gerhard, D. M., Wohleb, E. S., \& Duman, R. S. (2016). Emerging treatment mechanisms for depression: Focus on glutamate and synaptic plasticity. \emph{Drug Discovery Today}, \emph{21}(3), 454--464. \url{https://doi.org/10.1016/j.drudis.2016.01.016}
+
+\leavevmode\vadjust pre{\hypertarget{ref-liAlleviationCognitiveDeficits2020}{}}%
+Li, Z., Wang, G., Zhong, S., Liao, X., Lai, S., Shan, Y., \ldots{} Jia, Y. (2020). Alleviation of cognitive deficits and high copper levels by an {NMDA} receptor antagonist in a rat depression model. \emph{Comprehensive Psychiatry}, \emph{102}, 152200. \url{https://doi.org/10.1016/j.comppsych.2020.152200}
+
+\leavevmode\vadjust pre{\hypertarget{ref-MajorDepressionNational}{}}%
+Major {Depression} - {National Institute} of {Mental Health} ({NIMH}). (n.d.). Retrieved February 27, 2024, from \url{https://www.nimh.nih.gov/health/statistics/major-depression}
+
+\leavevmode\vadjust pre{\hypertarget{ref-nationalresearchcouncilusandinstituteofmedicineuscommitteeondepressionEtiologyDepression2009}{}}%
+National Research Council (US) and Institute of Medicine (US) Committee on Depression, P. P., England, M. J., \& Sim, L. J. (2009). The {Etiology} of {Depression}. In \emph{Depression in {Parents}, {Parenting}, and {Children}: {Opportunities} to {Improve Identification}, {Treatment}, and {Prevention}}. {National Academies Press (US)}. Retrieved from \url{https://www.ncbi.nlm.nih.gov/books/NBK215119/}
+
+\leavevmode\vadjust pre{\hypertarget{ref-petersBiphasicEffectsCopper2011}{}}%
+Peters, C., Muñoz, B., Sepúlveda, F. J., Urrutia, J., Quiroz, M., Luza, S., \ldots{} Opazo, C. (2011). Biphasic effects of copper on neurotransmission in rat hippocampal neurons. \emph{Journal of Neurochemistry}, \emph{119}(1), 78--88. \url{https://doi.org/10.1111/j.1471-4159.2011.07417.x}
+
+\leavevmode\vadjust pre{\hypertarget{ref-prashanthReviewRoleEssential2015}{}}%
+Prashanth, L., Kattapagari, K., Chitturi, R., Baddam, V. R., \& Prasad, L. (2015). A review on role of essential trace elements in health and disease. \emph{Journal of Dr. NTR University of Health Sciences}, \emph{4}(2), 75. \url{https://doi.org/10.4103/2277-8632.158577}
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-base}{}}%
 R Core Team. (2023). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-ggplot2}{}}%
-Wickham, H. (2016). \emph{ggplot2: Elegant graphics for data analysis}. Springer-Verlag New York. Retrieved from \url{https://ggplot2.tidyverse.org}
+\leavevmode\vadjust pre{\hypertarget{ref-saragoussiLongtermFollowupHealthrelated2018}{}}%
+Saragoussi, D., Christensen, M. C., Hammer-Helmich, L., Rive, B., Touya, M., \& Haro, J. M. (2018). Long-term follow-up on health-related quality of life in major depressive disorder: A 2-year {European} cohort study. \emph{Neuropsychiatric Disease and Treatment}, \emph{Volume 14}, 1339--1350. \url{https://doi.org/10.2147/NDT.S159276}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-forcats}{}}%
-Wickham, H. (2023a). \emph{Forcats: Tools for working with categorical variables (factors)}. Retrieved from \url{https://CRAN.R-project.org/package=forcats}
-
-\leavevmode\vadjust pre{\hypertarget{ref-R-stringr}{}}%
-Wickham, H. (2023b). \emph{Stringr: Simple, consistent wrappers for common string operations}. Retrieved from \url{https://CRAN.R-project.org/package=stringr}
-
-\leavevmode\vadjust pre{\hypertarget{ref-R-tidyverse}{}}%
-Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D., François, R., \ldots{} Yutani, H. (2019). Welcome to the {tidyverse}. \emph{Journal of Open Source Software}, \emph{4}(43), 1686. \url{https://doi.org/10.21105/joss.01686}
+\leavevmode\vadjust pre{\hypertarget{ref-styczenSerumZincConcentration2017}{}}%
+Styczeń, K., Sowa-Kućma, M., Siwek, M., Dudek, D., Reczyński, W., Szewczyk, B., \ldots{} Nowak, G. (2017). The serum zinc concentration as a potential biological marker in patients with major depressive disorder. \emph{Metabolic Brain Disease}, \emph{32}(1), 97--103. \url{https://doi.org/10.1007/s11011-016-9888-9}
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-dplyr}{}}%
 Wickham, H., François, R., Henry, L., Müller, K., \& Vaughan, D. (2023). \emph{Dplyr: A grammar of data manipulation}. Retrieved from \url{https://CRAN.R-project.org/package=dplyr}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-purrr}{}}%
-Wickham, H., \& Henry, L. (2023). \emph{Purrr: Functional programming tools}. Retrieved from \url{https://CRAN.R-project.org/package=purrr}
-
 \leavevmode\vadjust pre{\hypertarget{ref-R-readr}{}}%
 Wickham, H., Hester, J., \& Bryan, J. (2023). \emph{Readr: Read rectangular text data}. Retrieved from \url{https://CRAN.R-project.org/package=readr}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-tidyr}{}}%
-Wickham, H., Vaughan, D., \& Girlich, M. (2023). \emph{Tidyr: Tidy messy data}. Retrieved from \url{https://CRAN.R-project.org/package=tidyr}
+\leavevmode\vadjust pre{\hypertarget{ref-yuiEditorialThematicIssue2016}{}}%
+Yui, K. (2016). Editorial ({Thematic Issue}: {New Therapeutic Targets} for {Autism Spectrum Disorders}). \emph{CNS \& Neurological Disorders - Drug Targets}, \emph{15}(5), 529--532. \url{https://doi.org/10.2174/1871527315999160502125423}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-knitr}{}}%
-Xie, Y. (2015). \emph{Dynamic documents with {R} and knitr} (2nd ed.). Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from \url{https://yihui.org/knitr/}
-
-\leavevmode\vadjust pre{\hypertarget{ref-R-kableExtra}{}}%
-Zhu, H. (2024). \emph{kableExtra: Construct complex table with 'kable' and pipe syntax}. Retrieved from \url{https://CRAN.R-project.org/package=kableExtra}
+\leavevmode\vadjust pre{\hypertarget{ref-zorodduEssentialMetalsHumans2019}{}}%
+Zoroddu, M. A., Aaseth, J., Crisponi, G., Medici, S., Peana, M., \& Nurchi, V. M. (2019). The essential metals for humans: A brief overview. \emph{Journal of Inorganic Biochemistry}, \emph{195}, 120--129. \url{https://doi.org/10.1016/j.jinorgbio.2019.03.013}
 
 \end{CSLReferences}
 

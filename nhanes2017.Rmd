@@ -1,5 +1,5 @@
 ---
-title             : "Urine_Dep"
+title             : "Correlation of trace metal and frequency of depression symptom"
 shorttitle        : "Title"
 
 author: 
@@ -20,7 +20,7 @@ author:
 
 affiliation:
   - id            : "1"
-    institution   : "Wilhelm-Wundt-University"
+    institution   : "University of Chicago"
   - id            : "2"
     institution   : "Konstanz Business School"
 
@@ -40,10 +40,10 @@ abstract: |
   
   <!-- https://tinyurl.com/ybremelq -->
   
-keywords          : "keywords"
+keywords          : "Trace metal, Depression"
 wordcount         : "X"
 
-bibliography      : ["nhanes2017.bib"]
+bibliography      : ["./nhanes2017.bib"]
 
 floatsintext      : no
 linenumbers       : no
@@ -57,26 +57,24 @@ footnotelist      : no
 classoption       : "man"
 output            : papaja::apa6_pdf
 ---
+#Introduction
+Major Depressive Disorder (MDD) is a prevalent yet severe mood condition marked by experience of low mood and negative emotions for a long period of time[@americanpsychiatricassociationDiagnosticStatisticalManual2013].  In 2019, approximately 280 million individuals, which includes 5% of the adult population, were estimated to have experienced depression[@GBDResults]. According to the statistics from the United States National Institute of Mental Health, around 21.0 million adults in the United States experienced at least one major depressive episode, accounting for 8.3% of all U.S. adults[@MajorDepressionNational].
+MDD is a multifaceted and intricate condition, which can result in impairment of psychosocial functioning and quality of life[@saragoussiLongtermFollowupHealthrelated2018]. In addition to depressed feelings, patients with MDD may experience a wide range of physical and cognitive symptoms, including feelings of sadness, irritability, loss of interest or pleasure in activities, changes in appetite or weight, sleep disturbances, fatigue, feelings of worthlessness or guilt, difficulty concentrating, and thoughts of death or suicide[@americanpsychiatricassociationDiagnosticStatisticalManual2013]. 
+Etiology of MDD includes biological, environmental, and personal vulnerabilities[@nationalresearchcouncilusandinstituteofmedicineuscommitteeondepressionEtiologyDepression2009]. Lately, there has been growing attention towards metallomic research in psychiatry, with a focus on examining the involvement of essential trace elements in both the development and progression of MDD symptoms. An essential trace element refers to a mineral or dietary element necessary in small amounts for an organism’s proper growth, development, and physiology[@bowen1966trace]. These elements are vital for conducting essential metabolic activities in organisms. Examples of essential trace metals in human nutrition include Na, K, Mg, Ca, Fe, Mn, Co, Cu, Zn and Mo[@zorodduEssentialMetalsHumans2019]. The trace metals play important catalytic and structural roles. These elements facilitate essential biochemical reactions by serving as cofactors for numerous enzymes and as stabilizing agents for the structures of enzymes and proteins[@prashanthReviewRoleEssential2015]. Alterations in the accumulation or absence of these components can trigger alternative metabolic pathways, potentially contributing to various neurodevelopmental diseases and conditions [@yuiEditorialThematicIssue2016].
+Baj et al. (2013) conducted an narrative review of the relationship between levels of selected trace elements in the serum of individuals with MDD and the initiation and advancement of this mental health disorder[@bajTraceElementsLevels2023]. Findings of this review reveal that the levels of metal content in the body are related to the outcomes of individuals with MDD in various ways. For example, Li et al. (2020) has demonstrated that elevated levels of copper can disrupt the functioning of NMDA receptors, contributing to cognitive deficits in MDD[@liAlleviationCognitiveDeficits2020]. Increased copper concentrations can also impair AMPA receptor function, leading to disruptions in glutamatergic transmission, supporting the Glu hypothesis of depression[@gerhardEmergingTreatmentMechanisms2016; @petersBiphasicEffectsCopper2011; @styczenSerumZincConcentration2017].
+Although there relationship between the trace metals in human serum and MDD has been widely studied, there are limited research on the results of trace metal and how they relate to the frequency of MDD symptom. This study aims to reveal the relationship between the two.
 
 ```{r setup, include = FALSE}
 library("papaja")
-r_refs("nhanes2017.bib")
+library(readr)
+library(dplyr)
+r_refs("./nhanes2017.bib")
+nhanes_data <- read_csv("~/Documents/Github/Env_chem-cortisol/nhanes2017.csv")
 source("~/Documents/GitHub/Env_chem-cortisol/data-prep.R")
 ```
 
-
-```{r}
-#selected the depression related data and write it into a individual csv file
-library(readr)
-library(dplyr)
-nhanes_data <- read_csv("~/Documents/Github/Env_chem-cortisol/nhanes2017.csv")
-depression_columns <- nhanes_data %>% select(starts_with("DPQ"),starts_with("SEQN"))
-head(depression_columns)
-write_csv(depression_columns,"depression_columns")
-
-```
-Here to reference my depression measure gender difference plot.Figure\\@ref(fig:DPQgenderdiff-plot)
-```{r DPQgenderdiff-plot}
+Here to reference my depression measure gender difference plot.(Figure\@ref(fig:gender_diff_plot))
+```{r gender_diff_plot}
 #Create a bar plot to visualize the difference in mean depression scores (DPQsum) between genders
 #box plot would be better. add standard error bar if want to leave as bar plot.
 library(dplyr)
@@ -88,26 +86,27 @@ gender_diff_plot<-ggplot(fix_nhanes_data, aes(x = Gender, y = DPQsum)) +
   labs(title = "Difference in Mean DPQsum Between Genders",
        x = "Gender",
        y = "Mean DPQsum")
-
+print(gender_diff_plot)
 # To "fine tune" it, I can change the color of two bar and make it a little thinner. 1
 ```
-Here to reference my LCsum and DPQ sum linear regression plot. Figure\\@ref(fig:LCDPQ-plot)
+Here to reference my LCsum and DPQ sum linear regression plot. (Figure\@ref(fig:LCDPQ_plot))
 ```{r LCDPQ-plot}
 #My second plot would be a linear regression 
 library(ggplot2)
 LCsumnotzero_data <- fix_nhanes_data[!is.na(fix_nhanes_data$LCsum) & fix_nhanes_data$LCsum != 0, ]
-ggplot(LCsumnotzero_data, aes(x = LCsum, y = DPQsum)) +
+LCDPQ_plot <- ggplot(LCsumnotzero_data, aes(x = LCsum, y = DPQsum)) +
   geom_jitter() +
    geom_smooth(method = "lm", color = "blue") +
   labs(title = "LCsum vs DPQsum", x = "LCsum", y = "DPQsum")
-
+print(LCDPQ_plot)
 ```
 
 
-Here to reference my racial demographic table @ref(racial_demographics)
-```{r racial_demographics}
+Here to reference my racial demographic table.(Table:\@ref(racial-demographic))
+```{r racial-demographic}
 library(knitr)
 library(kableExtra)
+
 # Create a lookup table for racial categories
 racial_lookup <- data.frame(
   RIDRETH3 = c(1, 2, 3, 4, 6, 7, NA),
@@ -124,14 +123,9 @@ nhanes_data$Racial_Category <- racial_lookup$Racial_Category[match(nhanes_data$R
 # Create a table showing the racial demographics
 racial_demographics <- table(nhanes_data$Racial_Category)
 
-# Print the table with kable and style it with kableExtra
-rac_table <- kable(racial_demographics, col.names = c("Race", "Count"), align = "c", caption = "Racial Demographics in NHANES Data") %>%
-  kable_styling(latex_options = "striped", position = "center") %>%
-  column_spec(1, bold = TRUE, border_right = TRUE) %>%
-  row_spec(0, bold = TRUE)
-
-# Print the formatted table
-print(rac_table)
+# Print the formatted table with kable
+kable(racial_demographics, format = "latex", caption = "Racial Demographics") %>%
+  kable_styling(latex_options = c("striped", "scale_down"))
 
 
 ```
@@ -144,14 +138,14 @@ print(rac_table)
 ## Procedure
 
 ## Data analysis
-We used `r cite_r("nhanes2017.bib")` for all our analyses.
+We used `r cite_r("./nhanes2017.bib")` for all our analyses.
 ```{r hypothesis test analysis}
 #For my hypothesis test analysis. I would do a Spearman's Rank Correlation coefficient since both my variables are ordinal variables.One is LCsum. It is the sum of total kinds of trace metal above detection limits in each participants. One is DPQsum, which is their depression test result.
 
 spearman_test_LCsum <- cor.test(fix_nhanes_data$LCsum, fix_nhanes_data$DPQsum, method = "spearman")
 print(spearman_test_LCsum)#r=0.0303 p=0.191
 ```
-
+The spearman test result for the type of trace metal exceed detection limits and the frequency of depression symptom is `r print(spearman_test_LCsum)`
 ```{r table for test result}
 
 # Specify the variables for which to perform Spearman's rank correlation test
@@ -178,8 +172,31 @@ print(results)
 
 ```
 ```{r descriptive analysis}
-#For my descriptive analysis. I will show the distribution of LCsum, the means, median.
+#For my descriptive analysis. I will show the distribution of LCsum and DPQsum, the means, median.
+# Summary statistics for LCsum
+summary(fix_nhanes_data$LCsum)
+
+# Calculate mean
+mean_LCsum <- mean(fix_nhanes_data$LCsum, na.rm = TRUE)
+print(paste("Mean of LCsum:", mean_LCsum))
+
+# Calculate median
+median_LCsum <- median(fix_nhanes_data$LCsum, na.rm = TRUE)
+print(paste("Median of LCsum:", median_LCsum))
+
+# Summary statistics for DPQsum
+summary(fix_nhanes_data$DPQsum)
+
+# Calculate mean for DPQsum
+mean_DPQsum <- mean(fix_nhanes_data$DPQsum, na.rm = TRUE)
+print(paste("Mean of DPQsum:", mean_DPQsum))
+
+# Calculate median for DPQsum
+median_DPQsum <- median(fix_nhanes_data$DPQsum, na.rm = TRUE)
+print(paste("Median of DPQsum:", median_DPQsum))
+
 ```
+Means of LCsum is `r print(paste("Median of DPQsum:", median_DPQsum))`, which means participants have an average of 9 or 10 types of trace metal above detection limits. For the same people group, their average score for frequency of depression symptom is `r print(paste("Mean of DPQsum:", mean_DPQsum))`. 
 # Results
 
 # Discussion

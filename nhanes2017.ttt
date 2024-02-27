@@ -1,0 +1,25 @@
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\caption{\label{tab:racial-demographic}Racial Demographics}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{l|r}
+\hline
+Var1 & Freq\\
+\hline
+\cellcolor{gray!10}{Mexican American} & \cellcolor{gray!10}{263}\\
+\hline
+Non-Hispanic Asian & 262\\
+\hline
+\cellcolor{gray!10}{Non-Hispanic Black} & \cellcolor{gray!10}{430}\\
+\hline
+Non-Hispanic White & 636\\
+\hline
+\cellcolor{gray!10}{Other} & \cellcolor{gray!10}{104}\\
+\hline
+Other Hispanic & 164\\
+\hline
+\end{tabular}}
+\end{table*}
