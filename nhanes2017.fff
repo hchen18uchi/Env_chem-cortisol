@@ -1,0 +1,7 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\includegraphics{nhanes2017_files/figure-latex/LCDPQ-plot-1.pdf}
+\caption{\label{fig:LCDPQ-plot}LCsum vs DPQsum for Individuals with DPQsum \textgreater{} 10}
+\end{figure*}

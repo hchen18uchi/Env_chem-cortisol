@@ -8,9 +8,17 @@ localonly/
 #ignore all html file
 *.html
 
+#ignore tex, ttt and log 
+*.txt
+*.ttt
+*.log
 #ignore one specific file named 'unwanted file'
 unwanted_file.txt
-
+Assignment2-1.R
+Assignment2-2.pdf
+Assignment2-2.tex
+depression_columns
+starwars.R
 # Session Data files
 .RData
 .RDataTmp
