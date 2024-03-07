@@ -2,7 +2,8 @@
 #prepared data. It combined several sepreate dataset from the database including the demographic,
 # the depression measurment and all the urine measurement I might need from the database. The main
 # coding would be select, filter, start with, some calculation and some plot. 
-
+require(readr)
+require(dplyr)
 library(readr)
 library(dplyr)
 nhanes_data <- read_csv("~/Documents/Github/Env_chem-cortisol/nhanes2017.csv")

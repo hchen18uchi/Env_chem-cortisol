@@ -22,7 +22,7 @@ abstract: |
   <!-- https://tinyurl.com/ybremelq -->
   
 keywords          : "Trace metal, Depression"
-wordcount         : "X"
+wordcount         : "2123"
 
 bibliography      : ["./nhanes2017.bib"]
 
@@ -42,6 +42,10 @@ header-includes:
 ---
 
 ```{r setup, include = FALSE}
+require(readr)
+require(dplyr)
+require(knitr)
+require(ggplot2)
 library("papaja")
 library(readr)
 library(dplyr)
