@@ -206,7 +206,15 @@ Major Depressive Disorder (MDD) is a prevalent yet severe mood condition marked 
 MDD is a multifaceted and intricate condition, which can result in impairment of psychosocial functioning and quality of life(Saragoussi et al., 2018). In addition to depressed feelings, patients with MDD may experience a wide range of physical and cognitive symptoms, including feelings of sadness, irritability, loss of interest or pleasure in activities, changes in appetite or weight, sleep disturbances, fatigue, feelings of worthlessness or guilt, difficulty concentrating, and thoughts of death or suicide(American Psychiatric Association, 2013).
 Etiology of MDD includes biological, environmental, and personal vulnerabilities(National Research Council (US) and Institute of Medicine (US) Committee on Depression, England, \& Sim, 2009). Lately, there has been growing attention towards metallomic research in psychiatry, with a focus on examining the involvement of essential trace elements in both the development and progression of MDD symptoms. An essential trace element refers to a mineral or dietary element necessary in small amounts for an organism's proper growth, development, and physiology(Bowen, 1966). These elements are vital for conducting essential metabolic activities in organisms. Examples of essential trace metals in human nutrition include Na, K, Mg, Ca, Fe, Mn, Co, Cu, Zn and Mo(Zoroddu et al., 2019). The trace metals play important catalytic and structural roles. These elements facilitate essential biochemical reactions by serving as cofactors for numerous enzymes and as stabilizing agents for the structures of enzymes and proteins(Prashanth, Kattapagari, Chitturi, Baddam, \& Prasad, 2015). Alterations in the accumulation or absence of these components can trigger alternative metabolic pathways, potentially contributing to various neurodevelopmental diseases and conditions (Yui, 2016).
 Baj et al.~(2013) conducted an narrative review of the relationship between levels of selected trace elements in the serum of individuals with MDD and the initiation and advancement of this mental health disorder(Baj et al., 2023). Findings of this review reveal that the levels of metal content in the body are related to the outcomes of individuals with MDD in various ways. For example, Li et al.~(2020) has demonstrated that elevated levels of copper can disrupt the functioning of NMDA receptors, contributing to cognitive deficits in MDD(Li et al., 2020). Increased copper concentrations can also impair AMPA receptor function, leading to disruptions in glutamatergic transmission, supporting the Glu hypothesis of depression(Gerhard, Wohleb, \& Duman, 2016; Peters et al., 2011; Styczeń et al., 2017).
-Although there relationship between the trace metals in human serum and MDD has been widely studied, there are limited research on the results of trace metal and how they relate to the frequency of MDD symptom. This study aims to reveal the relationship between the two.
+Although the relationship between the trace metals and MDD has been widely studied, there are limited research on the results of trace metal and how they relate to the onset of MDD symptom. This study aims to reveal the relationship between the two.
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+\hypertarget{dataset}{%
+\subsection{Dataset}\label{dataset}}
+
+This research employs a cross-sectional methodology, leveraging data from the National Health and Nutrition Examination Survey (NHANES) conducted by the US National Center for Health Statistics. Objectives of the survey encompass evaluating the health and nutritional conditions of individuals across the United States, as well as identifying the prevalence of significant diseases and their risk contributors. The NHANES database includes a wide array of information, such as demographic specifics, nutritional insights, results from physical exams, laboratory test results, participant questionnaire answers, and confidential data.Here is a table showing the racial demographic of our study.
 
 \begin{table}
 \centering
@@ -232,14 +240,6 @@ Other Hispanic & 164\\
 \end{tabular}}
 \end{table}
 
-\hypertarget{methods}{%
-\section{Methods}\label{methods}}
-
-\hypertarget{dataset}{%
-\subsection{Dataset}\label{dataset}}
-
-This research employs a cross-sectional methodology, leveraging data from the National Health and Nutrition Examination Survey (NHANES) conducted by the US National Center for Health Statistics. Objectives of the survey encompass evaluating the health and nutritional conditions of individuals across the United States, as well as identifying the prevalence of significant diseases and their risk contributors. The NHANES database includes a wide array of information, such as demographic specifics, nutritional insights, results from physical exams, laboratory test results, participant questionnaire answers, and confidential data.
-
 \hypertarget{participants}{%
 \subsection{Participants}\label{participants}}
 
@@ -263,9 +263,14 @@ The assessment of participants' depressive symptoms was conducted using the Pati
 \hypertarget{data-analysis}{%
 \subsection{Data analysis}\label{data-analysis}}
 
-We used R (Version 4.3.2; R Core Team, 2023) and the R-packages \emph{dplyr} (Version 1.1.4; Wickham, François, Henry, Müller, \& Vaughan, 2023), \emph{ggplot2} (Version 3.5.0; Wickham, 2016), \emph{kableExtra} (Version 1.4.0; Zhu, 2024), \emph{knitr} (Version 1.45; Xie, 2015), \emph{papaja} (Version 0.1.2; Aust \& Barth, 2023), \emph{readr} (Version 2.1.5; Wickham, Hester, \& Bryan, 2024), \emph{shiny} (Version 1.8.0; Chang et al., 2023), and \emph{tinylabels} (Version 0.2.4; Barth, 2023) for all our analyses.
+We used R (Version 4.3.2; R Core Team, 2023) and the R-packages \emph{dplyr} (Version 1.1.4; Wickham, François, Henry, Müller, \& Vaughan, 2023), \emph{ggplot2} (Version 3.5.0; Wickham, 2016), \emph{kableExtra} (Version 1.4.0; Zhu, 2024), \emph{knitr} (Version 1.45; Xie, 2015), \emph{papaja} (Version 0.1.2; Aust \& Barth, 2023), \emph{readr} (Version 2.1.5; Wickham, Hester, \& Bryan, 2024), \emph{shiny} (Version 1.8.0; Chang et al., 2023), and \emph{tinylabels} (Version 0.2.4; Barth, 2023) for all our analyses. With in R, we performed Spearman's Rank Correlation coefficient test to see the relationship between the sum of over-limit trace metal type(LCsum) and their PHQ-9 score(DPQsum) since both our variables are ordinal variables. Besides that, we also performed Spearman's Rank Correlation coefficient test for each individual trace metal.
 
-This is a plot showing the correlation of LCsum and DPQsum. As shown in the plot \ref{fig:LCDPQ-plot}, we see\ldots{}
+\hypertarget{results}{%
+\section{Results}\label{results}}
+
+In our descriptive analysis, we examined the distribution, mean, and median values of two key variables: the sum of trace metal concentrations exceeding detection limits (LCsum) and the PHQ-9 score (DPQsum), which quantifies the frequency of depression symptoms. The summary statistics for LCsum revealed a mean value of 9.96 and a median value of 10, indicating the central tendency of trace metal concentrations in our study population. Similarly, for DPQsum, the mean score was calculated to be 15.09, with a median score of 14, providing insight into the prevalence and distribution of depression symptoms among participants.
+
+This is a plot showing the correlation of LCsum and DPQsum. As shown in the plot \ref{fig:LCDPQ-plot}, we see observe a relationship between the sum of trace metal concentrations exceeding detection limits (LCsum) and the frequency of depression symptoms as quantified by the PHQ-9 score (DPQsum) for individuals with DPQsum scores greater than 10. The scatter plot, enhanced by jitter to reduce overplotting, and the linear regression line suggest a slightly positive trend, indicating that as the LCsum increases, the DPQsum slight increases. This visual analysis is supported by a slight slope of the regression line, colored in blue. Although the plot reveals the general trend, it is essential to consider the variability around the regression line.
 
 \begin{figure}
 \centering
@@ -273,25 +278,61 @@ This is a plot showing the correlation of LCsum and DPQsum. As shown in the plot
 \caption{\label{fig:LCDPQ-plot}LCsum vs DPQsum for Individuals with DPQsum \textgreater{} 10}
 \end{figure}
 
-The Spearman test result for the type of trace metal exceed detection limits and the frequency of depression symptom shows a correlation coefficient (rho) of 0.18 with a p-value of 0.04.
+The Spearman test result for the type of trace metal exceed detection limits and the frequency of depression symptom score shows a correlation coefficient (rho) of 0.18 with a p-value of 0.04.The Spearman's rho value of 0.18 indicates a weak positive correlation between the sum of trace metals detected in participants and their scores on the depression test. This suggests that there is a slight tendency for individuals with a higher number of trace metal types above detection limits to report higher levels of depressive symptoms. However, the correlation strength is weak, implying that while there is a positive relationship, it is not particularly strong.The p-value of 0.04 is less than the commonly used significance level of 0.05. This indicates that the observed correlation is statistically significant.
 
-\begin{verbatim}
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   7.000  10.000  10.000   9.961  11.000  11.000
-\end{verbatim}
+\begin{table}
 
-\begin{verbatim}
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   11.00   12.00   14.00   15.09   18.00   27.00
-\end{verbatim}
+\caption{\label{tab:test-result-table}Individual Trace Metal Spearman's Rank Correlation Test Results}
+\centering
+\begin{tabular}[t]{l|l|r|r}
+\hline
+  & Variable & R\_Score & P\_Value\\
+\hline
+rho & URXUBA & 0.1001060 & 0.2590004\\
+\hline
+rho1 & URXUCD & 0.1277726 & 0.1490164\\
+\hline
+rho2 & URXUCO & 0.0936937 & 0.2909119\\
+\hline
+rho3 & URXUCS & -0.0202666 & 0.8196714\\
+\hline
+rho4 & URXUMO & -0.0444153 & 0.6172180\\
+\hline
+rho5 & URXUMN & 0.2216353 & 0.0115940\\
+\hline
+rho6 & URXUPB & 0.1416062 & 0.1094302\\
+\hline
+rho7 & URXUSB & 0.1815112 & 0.0395289\\
+\hline
+rho8 & URXUSN & 0.0668229 & 0.4518009\\
+\hline
+rho9 & URXUTL & -0.1013294 & 0.2531954\\
+\hline
+rho10 & URXUTU & 0.0928307 & 0.2953980\\
+\hline
+\end{tabular}
+\end{table}
 
-Means of LCsum is 9.96, which means participants have an average of 10 types of trace metal above detection limits. For the same people group, their average score for frequency of depression symptom is 15.09.
+The result for each type of trace metal is stored in table 2. The results indicate that most trace metals have a weak to moderate association with depression symptoms, with many not reaching statistical significance. Notably, URXUMN and URXUSB show statistically significant positive correlations, suggesting that higher concentrations of these metals are associated with more frequent depression symptoms.
 
-\hypertarget{results}{%
-\section{Results}\label{results}}
+Manganese (URXUMN, rho: 0.2216, p-value: 0.0116): The analysis revealed a moderate positive correlation between manganese levels and the frequency of depression symptoms that is statistically significant. This suggests that higher manganese exposures are associated with an increased frequency of reported depression symptoms among the study participants. Given the statistical significance (p \textless{} 0.05), this finding indicates a meaningful association between manganese exposure and mental health outcomes. It underscores the need for further investigation into the biological mechanisms through which manganese may influence depressive symptoms and to explore potential public health interventions to mitigate its negative impacts on mental health.
+
+Antimony (URXUSB, rho: 0.1815, p-value: 0.0395): The results indicate a moderate positive correlation between antimony levels and the frequency of depression symptoms that is also statistically significant. Similar to manganese, this finding suggests an association between higher antimony exposures and an increased frequency of depression symptoms. The statistical significance of this correlation points to antimony as another trace metal of concern in the context of mental health, warranting additional research to understand its effects on depression and to assess the risk it may pose to exposed populations.
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
+
+This study explored the association between trace metal exposure, quantified as the sum of trace metals exceeding detection limits (LCsum), and the severity of depressive symptoms, measured using the PHQ-9 score (DPQsum), in a sample population. Our findings reveal a weak but statistically significant positive correlation between LCsum and DPQsum, suggesting that increased exposure to trace metals may be associated with higher levels of depressive symptoms. Specifically, the analysis identified manganese (URXUMN) and antimony (URXUSB) as having moderate and statistically significant positive correlations with depression symptoms, highlighting their potential roles as environmental risk factors for mental health.The observed association between trace metal exposure and depression aligns with emerging literature that suggests environmental pollutants, including heavy metals, may contribute to the pathophysiology of depressive disorders through various biological mechanisms.
+
+\hypertarget{limitation}{%
+\subsection{Limitation}\label{limitation}}
+
+This study's limitations include its cross-sectional design, which precludes causal inferences. While significant associations were observed, it is not possible to determine whether metal exposure precedes the development of depressive symptoms or vice versa. Additionally, reliance on self-reported depression scores may introduce reporting biases. The measurement of metal exposure was based on the sum of metals exceeding detection limits, which may not fully capture the nuances of individual metal exposures or their combined effects.
+
+\hypertarget{future-directions}{%
+\subsection{Future Directions}\label{future-directions}}
+
+Longitudinal studies are needed to establish temporality and causality in the relationship between trace metal exposure and depression. Further research should also explore the biological mechanisms underlying the observed associations, with particular attention to low-level exposures and potential synergistic effects of multiple metals. Public health interventions aimed at reducing exposure to identified metals, such as manganese and antimony, could be evaluated for their impact on mental health outcomes.
 
 \newpage
 
