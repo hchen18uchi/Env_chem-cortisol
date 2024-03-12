@@ -1,0 +1,275 @@
+---
+title: "final-evaluation-ricky"
+output: html_document
+date: "2024-03-08"
+---
+
+# Assignment Info
+
+- **Student name:** Hao Chen
+- **Project title:** Correlation of trace metal and Depression
+- **Submission date:** Mar 7 at 9:01pm (extension)
+
+## Report plan summary
+
+Due to my data situation, I have plans for 2 different datasets. 
+National Health and Nutrition Examination Survey Data
+In this study, we aim to explore the association between excessive trace metal intake and the frequency of depression symptoms using data from the National Health and Nutrition Examination Survey (NHANES). The dataset encompasses measurements for 11 types of trace metals, alongside their respective detection limits. Our primary hypothesis posits that an increase in the variety of trace metals exceeding detection limits correlates positively with the frequency of depression symptoms. This investigation not only seeks to understand the collective impact of multiple trace metals on depression but also to delineate the specific effects exerted by each individual trace metal on depression scores.
+For the analytical framework, Spearman’s Rank Correlation Coefficient is employed as the principal statistical tool, given the ordinal nature of the depression score variable. This non-parametric measure is well-suited for assessing the monotonic relationships between the ordinal depression scores and the continuous variables representing trace metal concentrations.
+The analysis will be visualized through two key types of figures. The first will be a jitter plot illustrating the relationship between the sum of trace metals exceeding their detection limits (LCsum) and the depression scores, providing a visual representation of the overall trend and distribution. The second set of figures will consist of scatter plots for each trace metal, showcasing the individual relationships between the concentrations of these metals and the frequency of depression symptoms. These visual aids are crucial for interpreting the data, offering insights into the patterns and strengths of the associations.
+This comprehensive approach allows for a nuanced understanding of how trace metal exposure correlates with depression symptomatology, contributing valuable insights into potential environmental risk factors for mental health issues. Through this analysis, we aim to shed light on the complex interplay between environmental exposures to trace metals and their impact on psychological well-being.
+
+```
+Code Chunk
+This is the code chunk that I use to perform Sperman’s test on each type of trace metal.
+# Specify the variables for which to perform Spearman's rank correlation test
+variables <- c("URXUBA", "URXUCD", "URXUCO", "URXUCS", "URXUMO",
+               "URXUMN", "URXUPB", "URXUSB", "URXUSN", "URXUTL", "URXUTU")
+ 
+# Initialize an empty data frame to store results
+results <- data.frame(Variable = character(),
+                      R_Score = numeric(),
+                      P_Value = numeric(),
+                      stringsAsFactors = FALSE)
+ 
+# Loop through each variable and perform the test
+for (var in variables) {
+  test_result <- cor.test(fix_nhanes_data[[var]], fix_nhanes_data$DPQsum, method = "spearman")
+  
+# Append the results to the results dataframe
+  results <- rbind(results, data.frame(Variable = var,
+                                       R_Score = test_result$estimate,
+                                       P_Value = test_result$p.value))
+}
+ 
+print(results)
+```
+
+Writing Plan
+My plan is to evenly distribute the 1500 words across 4 sections with slightly more on the discussion. The introduction will include a summary of each type of trace metal and their relationship to depression symptoms.
+
+PROGRESS DATA
+Progress data frame is my thesis’s data. My original plan was to use this data frame for this project but due to other reasons, I don’t have access to the data frame yet. However, with the data dictionary provided, I am able to write a complete introduction and analysis plan. The PROGRESS data is about PM2.5 exposure, temperature and pregnant women’s cortisol levels. Objectives include examining the Correlation Between PM2.5 Exposure and Cortisol Levels in Pregnant Women Across Trimesters with a Consideration of Temperature Variables. If I have access to the data before the end of the quarter, I will switch to this data frame. 
+
+Personal Goal
+Being part of the academic community, acquiring the ability to analyze data is crucial. Hence, my main objective is to become proficient in R. Additionally, I'm interested in learning how to transform my R Markdown files into formal papers.
+
+# Assessment
+
+The lists of expectations in each category are to help you understand the kinds of things I'm looking for as I grade. These **do not** map onto point values. A checked box indicates the expectation was met or exceeded. (This also helps me spot patterns across students to identify ways I can improve the syllabus and lectures for future students.)
+
+Ratings indicate overall success for each category and loosely map onto points. Starting from 20 points, no points are lost for the highest rating, -3 for the lowest, and somewhere in between for the middle ratings. Points lost in that range are dependent on how many issues there are, how much they matter, whether it's technicality vs problem of consequence, whether it's the same core issue that lost you points in a different section, whether exceeding expectations elsewhere compensate for a small issue, whether it's something we talked about in your report plan meeting, etc. 
+
+Additional comments are included below the ratings as needed. Final project and class grades are included at the end of the document.
+
+**WARNING: Grades for this assignment are going to be lower than you expect!** Don't freak out. I use "specs-based grading", which works very differently from the letter-grade-to-percentage conversion you are probably used to. It's more like Harry Potter OWLs -- 19/20 is outstanding, 16-18 exceeds expectations (not a C!), 13-15 meets expectations (not an F!), etc. You're not down to T(roll) until you're in the negatives. Remember this is only 20% of your final grade!
+
+## .Rmd/PDF match
+
+**Expectations:**
+
+- [x] PDF submitted to Canvas is identical to the PDF created when I knit your .Rmd
+- [ ] Knitting does not produce any errors or problematic warnings
+
+**Rating:**
+
+- [ ] Perfect match
+- [ ] At least one minor problem
+- [x] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [ ] Prohibitive error(s), missing PDF, or significant problems
+
+Multiple fatal errors *in knitting* caused by absolute paths in Rmd and data-prep.R. Corrected by changing to relative paths.
+
+## Data read-in, prep, wrangling
+
+**Expectations:**
+
+- [x] Data preparation and wrangling code present (may separate files)
+- [x] Intermediate datasets (if used) are functional and read in successfully
+- [ ] Raw or intermediate data read into .Rmd code chunk
+- [x] All code in .R files and .Rmd code chunks is sufficiently commented and comprehensible
+- [x] Additional expectations set in the report plan (if any) are met
+
+**Rating:**
+
+- [ ] No noteworthy issues 
+- [x] At least one minor problem
+- [ ] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [ ] Prohibitive errors or significant problems
+
+Multiple fatal errors *in environment execution* caused by absolute paths in Rmd and data-prep.R (would otherwise consider this a major issue but I recognize that it shares the same root cause as the major issue above, not going to fully penalize you twice for essentially one mistake)
+
+Don't load packages multiple times! include them in the first chunk of the .Rmd and if necessary in the sourced file. Do not load them in any other chunks in the document (e.g. line 152 LCDPQ-plot)
+
+## Figures, tables, analyses
+
+### Figures
+
+**Expectations:**
+
+- [ ] At least 2 plots are produced in .Rmd chunks (not imported images)
+- [ ] Figures are different kinds of plots 
+- [ ] Figures follow report plan (may have inconsequential deviations)
+- [ ] Figures are publication-quality
+- [x] Figures are sensibly captioned with `fig.cap` chunk option
+- [x] Figures are informative and interpretable
+- [ ] All code in .R files and .Rmd code chunks is sufficiently commented and comprehensible
+- [x] Additional expectations set in the report plan (if any) are met
+
+**Rating:**
+
+- [ ] No noteworthy issues 
+- [ ] At least one minor problem
+- [ ] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [x] Prohibitive errors or significant problems
+
+Where's your second plot? 
+
+For Figure 1 -- to be publication quality this needs to be appropriately themed (like with theme_apa(), though there are other reasonable options). More importantly all text on in the figure and its caption need to be fully intellegible just in the context of that figure. That means instead of using the dataset variable names, use plain-English, reader-friendly language, e.g., "LCsum" -> "Over-limit trace metal score total" and "DPQsum" -> "PHQ-9 Depression Score"
+
+### Table
+
+**Expectations:** 
+
+If you included more than the one required table, only one needs to meet expectations.
+
+- [x] At least 1 table is produced in .Rmd chunk
+- [x] Table follows report plan (may have inconsequential deviations)
+- [ ] Table is publication-quality
+- [x] Table is sensibly captioned within the function (e.g., the kable caption argument)
+- [x] Table is informative and interpretable
+- [x] All code in .R files and .Rmd code chunks is sufficiently commented and comprehensible
+- [x] Additional expectations set in the report plan (if any) are met
+
+**Rating:**
+
+- [ ] No noteworthy issues 
+- [x] At least one minor problem
+- [ ] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [ ] Prohibitive errors or significant problems
+
+Like with figures, all the text in your tables (both column headers and cell values) needs to be plain-English and reader-friendly. Table 1 is mostly good (though "Var1" is not a meaningful column name). Table 2 is extremely difficult to interpret. It's not clear what any of these variables, so any potentially significant correlations won't have meaning to your reader. They can't know what to think about "URXUMN" and "URXUSB" being linked to depression, but they could get your point if the table showed "manganese" and "antimony" linked to depression.
+
+### Analysis
+
+**Expectations:**
+
+If you included more than the one required analysis (or other requirements agreed on in the report plan), only one needs to meet expectations.
+
+- [x] At least 1 statistical analysis is executed in .Rmd chunk (or sourced code if appropriate)
+- [x] Analysis follows report plan (may have inconsequential deviations)
+- [x] Analysis is executed correctly
+- [x] Analysis is appropriate (not necessarily ideal) for data type(s) and research questions
+- [x] Analysis is referenced and interpreted in narrative text
+- [x] All code in .R files and .Rmd code chunks is sufficiently commented and comprehensible
+- [x] Additional expectations set in the report plan (if any) are met
+
+**Rating:**
+
+- [x] No noteworthy issues 
+- [ ] At least one minor problem
+- [ ] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [ ] Prohibitive errors or significant problems
+
+*No additional comments*
+
+## Manuscript
+
+### Narrative text
+
+**Expectations:**
+
+- [x] Narrative text includes 1500+ words distributed across 4 sections
+- [x] Sufficient literature review (per report plan)
+- [x] Sufficient methods section (per report plan)
+- [x] Sufficient results section (per report plan)
+- [x] Sufficient discussion (per report plan)
+- [x] Narrative provides sufficient context and interpretation for all figures, tables, and analyses
+- [x] Additional expectations set in the report plan (if any) are met
+
+**Rating:**
+
+- [x] No noteworthy issues 
+- [ ] At least one minor problem
+- [ ] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [ ] Prohibitive errors or significant problems
+
+*No additional comments*
+
+### Markdown
+
+**Expectations:**
+
+- [ ] Figures and tables are successfully referenced with markdown syntax
+- [x] At least 2 in-text code references
+- [x] At least 1 in-text code reference includes in-text function
+- [x] R Markdown is used effectively to follow APA format (e.g., headings, emphasized text)
+- [x] YAML header is functional and complete
+- [x] Additional expectations set in the report plan (if any) are met
+
+**Rating:**
+
+- [ ] No noteworthy issues 
+- [x] At least one minor problem
+- [ ] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [ ] Prohibitive errors or significant problems
+
+Tables are not referenced with markdown
+
+In-text r-code meets the bare minimum for the assignment, but going forward after this class (if you continue using R Markdown), you should really be incorporating those references as much as possible. This is the abolute *#1* advantage of writing a manuscript in R Studio. Ideally you should literally never write a single numeral in your narrative text that's linked to your data in any way.
+
+### BibTeX
+
+**Expectations:**
+
+- [ ] At least 10 in-text citations using BibTeX reference syntax
+- [ ] In-text citations are rendered without errors
+- [ ] In-text citations have no obvious problems (e.g., incorrect special characters)
+- [ ] R and R packages are cited in-text using `cite_r()`
+- [ ] Reference pages renders without errors
+- [ ] References page is APA formatted and free of obvious problems
+- [x] Additional expectations set in the report plan (if any) are met
+
+**Rating:**
+
+- [ ] No noteworthy issues 
+- [x] At least one minor problem
+- [ ] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [ ] Prohibitive errors or significant problems
+
+A few references without date/year
+
+A few citations without bibtex (ln 65)
+
+Minor formatting problem -- missing spaces before citation (so the parenthesis is pushed right up against the previous word)
+
+## GitHub & best practices
+
+These expectations will not have an impact on your grade unless there are egregious issues, but I include them to give you feedback on what you can do if you use this workflow going forward.
+
+**Expectations:**
+
+- [x] GitHub repo and contained files are sensibly and informatively named
+- [x] GitHub repo is well-structured and tidy
+- [x] GitHub README.md file is informative
+- [x] Commit messages are informative
+- [x] Style is (relatively) consistent
+- [x] Comments are frequent and informative
+- [x] Code chunks have informative names, follow 1-chunk-1-thing rule, and are distributed throughout the text
+
+*No additional comments*
+
+# Grade
+
+- **Final report grade:** 11
+- **Class participation grade:** 18
+- **Weekly assignments:** 60
+- **TOTAL Final course grade:** 89 (B+)
